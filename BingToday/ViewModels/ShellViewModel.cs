@@ -143,6 +143,13 @@ namespace BingToday.ViewModels
             PopulateNavItems();
 
             InitializeState(Window.Current.Bounds.Width);
+
+            ColorThemeChanged += ShellViewModel_ColorThemeChanged;
+        }
+
+        private void ShellViewModel_ColorThemeChanged(object sender, EventArgs e)
+        {
+            
         }
 
         private void PopulateNavItems()
@@ -206,5 +213,47 @@ namespace BingToday.ViewModels
                 NavigationService.Navigate(navigationItem.PageType);
             }
         }
+
+        //public void ChangeBackgroundColorTo(Windows.UI.Color newColor)
+        //{
+
+        //}
+
+        private Windows.UI.Color? newBkColor;
+        public Windows.UI.Color? NewBackgroundColor
+        {
+            get { return newBkColor; }
+            set
+            {
+                Set(ref newBkColor, value);
+                var h = ColorThemeChanged;
+                h?.Invoke(this, EventArgs.Empty);
+            }
+        }
+
+        private ICommand _newBkColorChanged;
+
+        public ICommand NewBackgroundColorChangedCommand
+        {
+            get
+            {
+                if (_newBkColorChanged == null)
+                {
+                    _newBkColorChanged = new RelayCommand<EventArgs>(NewBackgroundColorChanged);
+                }
+
+                return _newBkColorChanged;
+            }
+        }
+
+
+        private void NewBackgroundColorChanged(EventArgs obj)
+        {
+            System.Diagnostics.Debug.WriteLine(obj);
+
+        }
+
+        public event EventHandler<EventArgs> ColorThemeChanged;
+
     }
 }

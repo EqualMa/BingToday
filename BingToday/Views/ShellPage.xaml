@@ -7,11 +7,13 @@
     xmlns:vm="using:BingToday.ViewModels"
     xmlns:ic="using:Microsoft.Xaml.Interactions.Core"
     xmlns:i="using:Microsoft.Xaml.Interactivity"
+    xmlns:helpers="using:BingToday.Helpers"
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
-    mc:Ignorable="d">
+    mc:Ignorable="d"
+    x:Name="thisShellPage">
     <Page.Resources>
         <DataTemplate x:Key="NavigationMenuItemDataTemplate" x:DataType="vm:ShellNavigationItem">
-            <Grid Width="320" Height="40" Background="{ThemeResource SystemControlBackgroundAltHighBrush}">
+            <Grid Width="320" Height="40" Background="Transparent">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="48" />
                     <ColumnDefinition />
@@ -91,8 +93,31 @@
                 </VisualStateManager.VisualStateGroups>
             </Grid>
         </DataTemplate>
+
+        <Storyboard x:Name="BackgroundStoryboard">
+            <ColorAnimation x:Name="BackgroundColorAnimation" Storyboard.TargetName="NavigationMenu" To="{x:Bind Mode=OneWay, Path=ViewModel.NewBackgroundColor}"
+                            Storyboard.TargetProperty="(controls:NavigationMenu.PaneBackground).(SolidColorBrush.Color)"
+                            />
+            <!--From="{x:Bind Mode=OneWay,Path=NavigationMenu.PaneBackground.(SolidColorBrush.Color)}"-->
+        </Storyboard>
+
+        <helpers:ColorToNullableConverter x:Key="ColorToNullableConverter"/>
     </Page.Resources>
 
+    <i:Interaction.Behaviors>
+        <ic:EventTriggerBehavior SourceObject="{x:Bind thisShellPage}" EventName="Loaded">
+
+
+            <ic:CallMethodAction MethodName="BeginBackgroundStoryBoard" TargetObject="{x:Bind thisShellPage}"/>
+        </ic:EventTriggerBehavior>
+        <ic:EventTriggerBehavior SourceObject="{x:Bind ViewModel}" EventName="ColorThemeChanged">
+
+
+            <ic:CallMethodAction MethodName="BeginBackgroundStoryBoard" TargetObject="{x:Bind thisShellPage}"/>
+        </ic:EventTriggerBehavior>
+    </i:Interaction.Behaviors>
+
+    
     <controls:HamburgerMenu
             x:Name="NavigationMenu"
             DisplayMode="{x:Bind ViewModel.DisplayMode, Mode=OneWay}"
@@ -111,11 +136,19 @@
             <ic:EventTriggerBehavior EventName="OptionsItemClick">
                 <ic:InvokeCommandAction Command="{x:Bind ViewModel.ItemSelectedCommand}" />
             </ic:EventTriggerBehavior>
+
         </i:Interaction.Behaviors>
+
         <Grid Background="{ThemeResource SystemControlBackgroundAltHighBrush}">
+            <StackPanel>
+            <Button Background="Red" Width="50" Height="50" HorizontalAlignment="Center" Click="Button_Click" />
+
             <Frame x:Name="shellFrame"/>
+            </StackPanel>
+
         </Grid>
         <VisualStateManager.VisualStateGroups>
+
             <VisualStateGroup x:Name="WindowStates">
                 <i:Interaction.Behaviors>
                     <ic:EventTriggerBehavior EventName="CurrentStateChanged">

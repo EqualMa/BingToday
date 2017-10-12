@@ -15,6 +15,24 @@ namespace BingToday.Views
             InitializeComponent();
             DataContext = ViewModel;
             ViewModel.Initialize(shellFrame);
+
+
+        }
+
+        public void BeginBackgroundStoryBoard()
+        {
+            BackgroundColorAnimation.From =
+                (NavigationMenu.PaneBackground as Windows.UI.Xaml.Media.SolidColorBrush).Color;
+
+            BackgroundStoryboard.Stop();
+
+            BackgroundStoryboard.Begin();
+
+        }
+
+        private void Button_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+
         }
     }
 }

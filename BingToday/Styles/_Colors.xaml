@@ -2,4 +2,19 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">    
     <SolidColorBrush x:Key="ThemeControlForegroundBaseHighBrush" Color="{ThemeResource SystemBaseHighColor}" />
+
+    <Color x:Key="DarkBackgroundColor">#A5000000</Color>
+    <SolidColorBrush x:Key="DarkBackgroundBrush" Color="{StaticResource DarkBackgroundColor}"/>
+
+    <Color x:Key="BrightForegroundColor">#CCFFFFFF</Color>
+    <SolidColorBrush x:Key="BrightForegroundBrush" Color="{StaticResource BrightForegroundColor}"/>
+
+    <Color x:Key="GrayColor">#FF3E4348</Color>
+    <SolidColorBrush x:Key="GrayColorBrush" Color="{StaticResource GrayColor}"/>
+
+    <Color x:Key="LikeColor">#E53A40</Color>
+    <SolidColorBrush x:Key="LikeColorBrush" Color="{StaticResource LikeColor}"/>
+
+
+
 </ResourceDictionary>
