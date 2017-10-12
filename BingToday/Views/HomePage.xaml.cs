@@ -6,11 +6,11 @@ using Windows.UI.Xaml.Controls;
 
 namespace BingToday.Views
 {
-    public sealed partial class HomePagePage : Page
+    public sealed partial class HomePage : Page
     {
         public HomePageViewModel ViewModel { get; } = new HomePageViewModel();
 
-        public HomePagePage()
+        public HomePage()
         {
             InitializeComponent();
         }

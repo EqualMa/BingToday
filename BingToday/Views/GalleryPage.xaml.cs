@@ -6,11 +6,11 @@ using Windows.UI.Xaml.Controls;
 
 namespace BingToday.Views
 {
-    public sealed partial class GalleryPagePage : Page
+    public sealed partial class GalleryPage : Page
     {
         public GalleryPageViewModel ViewModel { get; } = new GalleryPageViewModel();
 
-        public GalleryPagePage()
+        public GalleryPage()
         {
             InitializeComponent();
         }
