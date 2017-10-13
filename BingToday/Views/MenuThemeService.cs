@@ -25,7 +25,7 @@ namespace BingToday.Views
 
         // Using a DependencyProperty as the backing store for NewBackgroundColor.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty NewBackgroundColorProperty =
-            DependencyProperty.RegisterAttached("NewBackgroundColor", typeof(Color), typeof(MenuThemeService), new PropertyMetadata(Windows.UI.Colors.White, NewBackgroundColorChanged));
+            DependencyProperty.RegisterAttached("NewBackgroundColor", typeof(Color), typeof(MenuThemeService), new PropertyMetadata(Colors.White, NewBackgroundColorChanged));
 
         private static void NewBackgroundColorChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {

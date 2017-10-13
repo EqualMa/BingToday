@@ -207,8 +207,7 @@ namespace BingToday.ViewModels
 
         private void Navigate(object item)
         {
-            var navigationItem = item as ShellNavigationItem;
-            if (navigationItem != null)
+            if (item is ShellNavigationItem navigationItem)
             {
                 NavigationService.Navigate(navigationItem.PageType);
             }
@@ -226,31 +225,8 @@ namespace BingToday.ViewModels
             set
             {
                 Set(ref newBkColor, value);
-                var h = ColorThemeChanged;
-                h?.Invoke(this, EventArgs.Empty);
+                ColorThemeChanged?.Invoke(this, EventArgs.Empty);
             }
-        }
-
-        private ICommand _newBkColorChanged;
-
-        public ICommand NewBackgroundColorChangedCommand
-        {
-            get
-            {
-                if (_newBkColorChanged == null)
-                {
-                    _newBkColorChanged = new RelayCommand<EventArgs>(NewBackgroundColorChanged);
-                }
-
-                return _newBkColorChanged;
-            }
-        }
-
-
-        private void NewBackgroundColorChanged(EventArgs obj)
-        {
-            System.Diagnostics.Debug.WriteLine(obj);
-
         }
 
         public event EventHandler<EventArgs> ColorThemeChanged;
