@@ -19,7 +19,7 @@ namespace BingToday.Views
 
         }
 
-        public void BeginBackgroundStoryBoard()
+        public void BeginThemeStoryBoards()
         {
             BackgroundColorAnimation.From =
                 (NavigationMenu.PaneBackground as Windows.UI.Xaml.Media.SolidColorBrush).Color;
@@ -27,6 +27,13 @@ namespace BingToday.Views
             BackgroundStoryboard.Stop();
 
             BackgroundStoryboard.Begin();
+            
+            ForegroundColorAnimation.From =
+                (NavigationMenu.Foreground as Windows.UI.Xaml.Media.SolidColorBrush).Color;
+            ForegroundStoryboard.Stop();
+            ForegroundStoryboard.Begin();
+
+            DisplayModeStoryboard.Begin();
 
         }
 

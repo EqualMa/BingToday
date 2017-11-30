@@ -8,7 +8,10 @@
     xmlns:xaml="using:Windows.UI.Xaml"
     xmlns:local="using:BingToday.Views"
     mc:Ignorable="d"
-    local:MenuThemeService.NewBackgroundColor="#FF30A9DE">
+    local:MenuThemeService.NewBackgroundColor="#FF30A9DE"
+    local:MenuThemeService.NewForegroundColor="#CCFFFFFF"
+    local:MenuThemeService.NewSplitViewDisplayMode="CompactInline"
+    >
     <Page.Resources>
         <helper:EnumToBooleanConverter x:Key="EnumToBooleanConverter" EnumType="ElementTheme" />
 
@@ -74,7 +77,9 @@
                                                 <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource DarkButtonBorderBrush}"/>
                                             </ObjectAnimationUsingKeyFrames>
                                             <PointerUpThemeAnimation Storyboard.TargetName="RootGrid"/>
-                                            --><!--<DoubleAnimation BeginTime="0:0:0" Duration="0:0:2" To="0.0" Storyboard.TargetProperty="(UIElement.RenderTransform).(RotateTransform.Angle)" Storyboard.TargetName="RootGrid"/>--><!--
+                                            -->
+        <!--<DoubleAnimation BeginTime="0:0:0" Duration="0:0:2" To="0.0" Storyboard.TargetProperty="(UIElement.RenderTransform).(RotateTransform.Angle)" Storyboard.TargetName="RootGrid"/>-->
+        <!--
                                         </Storyboard>
                                     </VisualState>
                                     <VisualState x:Name="Pressed">
@@ -84,7 +89,9 @@
                                             <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="BorderBrush" Storyboard.TargetName="ContentPresenter">
                                                 <DiscreteObjectKeyFrame KeyTime="0" Value="Transparent"/>
                                             </ObjectAnimationUsingKeyFrames>
-                                            --><!--<DoubleAnimation BeginTime="0:0:0" Duration="0:0:2" To="0.0" Storyboard.TargetProperty="(UIElement.RenderTransform).(RotateTransform.Angle)" Storyboard.TargetName="RootGrid"/>--><!--
+                                            -->
+        <!--<DoubleAnimation BeginTime="0:0:0" Duration="0:0:2" To="0.0" Storyboard.TargetProperty="(UIElement.RenderTransform).(RotateTransform.Angle)" Storyboard.TargetName="RootGrid"/>-->
+        <!--
                                             <PointerDownThemeAnimation Storyboard.TargetName="RootGrid"/>
                                         </Storyboard>
                                     </VisualState>
@@ -99,7 +106,9 @@
                                             <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="BorderBrush" Storyboard.TargetName="ContentPresenter">
                                                 <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource SystemControlDisabledTransparentBrush}"/>
                                             </ObjectAnimationUsingKeyFrames>
-                                            --><!--<DoubleAnimation BeginTime="0:0:0" Duration="0:0:2" To="0.0" Storyboard.TargetProperty="(UIElement.RenderTransform).(RotateTransform.Angle)" Storyboard.TargetName="RootGrid"/>--><!--
+                                            -->
+        <!--<DoubleAnimation BeginTime="0:0:0" Duration="0:0:2" To="0.0" Storyboard.TargetProperty="(UIElement.RenderTransform).(RotateTransform.Angle)" Storyboard.TargetName="RootGrid"/>-->
+        <!--
                                         </Storyboard>
                                     </VisualState>
                                     <VisualState x:Name="Checked">
@@ -117,7 +126,9 @@
                                                 <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource DarkButtonBorderBrush}"/>
                                             </ObjectAnimationUsingKeyFrames>
                                             <PointerUpThemeAnimation Storyboard.TargetName="RootGrid"/>
-                                            --><!--<DoubleAnimation BeginTime="0:0:0" Duration="0:0:2" To="0.0" Storyboard.TargetProperty="(UIElement.RenderTransform).(RotateTransform.Angle)" Storyboard.TargetName="RootGrid"/>--><!--
+                                            -->
+        <!--<DoubleAnimation BeginTime="0:0:0" Duration="0:0:2" To="0.0" Storyboard.TargetProperty="(UIElement.RenderTransform).(RotateTransform.Angle)" Storyboard.TargetName="RootGrid"/>-->
+        <!--
                                         </Storyboard>
                                     </VisualState>
                                     <VisualState x:Name="CheckedPressed">
@@ -127,7 +138,9 @@
                                             <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="BorderBrush" Storyboard.TargetName="ContentPresenter">
                                                 <DiscreteObjectKeyFrame KeyTime="0" Value="Transparent"/>
                                             </ObjectAnimationUsingKeyFrames>
-                                            --><!--<DoubleAnimation BeginTime="0:0:0" Duration="0:0:2" To="0.0" Storyboard.TargetProperty="(UIElement.RenderTransform).(RotateTransform.Angle)" Storyboard.TargetName="RootGrid"/>--><!--
+                                            -->
+        <!--<DoubleAnimation BeginTime="0:0:0" Duration="0:0:2" To="0.0" Storyboard.TargetProperty="(UIElement.RenderTransform).(RotateTransform.Angle)" Storyboard.TargetName="RootGrid"/>-->
+        <!--
                                             <PointerDownThemeAnimation Storyboard.TargetName="RootGrid"/>
                                         </Storyboard>
                                     </VisualState>
@@ -142,7 +155,9 @@
                                             <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="BorderBrush" Storyboard.TargetName="ContentPresenter">
                                                 <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource SystemControlDisabledTransparentBrush}"/>
                                             </ObjectAnimationUsingKeyFrames>
-                                            --><!--<DoubleAnimation BeginTime="0:0:0" Duration="0:0:2" To="90.0" Storyboard.TargetProperty="(UIElement.RenderTransform).(RotateTransform.Angle)" Storyboard.TargetName="RootGrid"/>--><!--
+                                            -->
+        <!--<DoubleAnimation BeginTime="0:0:0" Duration="0:0:2" To="90.0" Storyboard.TargetProperty="(UIElement.RenderTransform).(RotateTransform.Angle)" Storyboard.TargetName="RootGrid"/>-->
+        <!--
                                         </Storyboard>
                                     </VisualState>
                                     <VisualState x:Name="Indeterminate">

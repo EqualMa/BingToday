@@ -94,12 +94,34 @@
             </Grid>
         </DataTemplate>
 
+        <Duration x:Key="StoryboardDefaultDuration">0:0:0.5</Duration>
+
         <Storyboard x:Name="BackgroundStoryboard">
-            <ColorAnimation x:Name="BackgroundColorAnimation" Storyboard.TargetName="NavigationMenu" To="{x:Bind Mode=OneWay, Path=ViewModel.NewBackgroundColor}"
-                            Storyboard.TargetProperty="(controls:NavigationMenu.PaneBackground).(SolidColorBrush.Color)"
+            <ColorAnimation x:Name="BackgroundColorAnimation" Storyboard.TargetName="NavigationMenu"
+                            To="{x:Bind Mode=OneWay, Path=ViewModel.NewBackgroundColor}"
+                            Duration="{StaticResource StoryboardDefaultDuration}"
+                            Storyboard.TargetProperty="(controls:HamburgerMenu.PaneBackground).(SolidColorBrush.Color)"
                             />
             <!--From="{x:Bind Mode=OneWay,Path=NavigationMenu.PaneBackground.(SolidColorBrush.Color)}"-->
         </Storyboard>
+        <Storyboard x:Name="ForegroundStoryboard">
+            <ColorAnimation x:Name="ForegroundColorAnimation" Storyboard.TargetName="NavigationMenu"
+                            To="{x:Bind Mode=OneWay, Path=ViewModel.NewForegroundColor}"
+                            Duration="{StaticResource StoryboardDefaultDuration}"
+                            Storyboard.TargetProperty="(controls:HamburgerMenu.PaneForeground).(SolidColorBrush.Color)"
+                            />
+            <!--From="{x:Bind Mode=OneWay,Path=NavigationMenu.PaneBackground.(SolidColorBrush.Color)}"-->
+        </Storyboard>
+
+        <Storyboard x:Name="DisplayModeStoryboard">
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="NavigationMenu"
+                                           Storyboard.TargetProperty="(controls:HamburgerMenu.DisplayMode)">
+                <DiscreteObjectKeyFrame KeyTime="1" Value="{x:Bind ViewModel.NewSplitViewDisplayMode}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <!--From="{x:Bind Mode=OneWay,Path=NavigationMenu.PaneBackground.(SolidColorBrush.Color)}"-->
+        </Storyboard>
+
+
 
         <helpers:ColorToNullableConverter x:Key="ColorToNullableConverter"/>
     </Page.Resources>
@@ -108,16 +130,16 @@
         <ic:EventTriggerBehavior SourceObject="{x:Bind thisShellPage}" EventName="Loaded">
 
 
-            <ic:CallMethodAction MethodName="BeginBackgroundStoryBoard" TargetObject="{x:Bind thisShellPage}"/>
+            <ic:CallMethodAction MethodName="BeginThemeStoryBoards" TargetObject="{x:Bind thisShellPage}"/>
         </ic:EventTriggerBehavior>
         <ic:EventTriggerBehavior SourceObject="{x:Bind ViewModel}" EventName="ColorThemeChanged">
 
 
-            <ic:CallMethodAction MethodName="BeginBackgroundStoryBoard" TargetObject="{x:Bind thisShellPage}"/>
+            <ic:CallMethodAction MethodName="BeginThemeStoryBoards" TargetObject="{x:Bind thisShellPage}"/>
         </ic:EventTriggerBehavior>
     </i:Interaction.Behaviors>
 
-    
+
     <controls:HamburgerMenu
             x:Name="NavigationMenu"
             DisplayMode="{x:Bind ViewModel.DisplayMode, Mode=OneWay}"
@@ -141,9 +163,9 @@
 
         <Grid Background="{ThemeResource SystemControlBackgroundAltHighBrush}">
             <StackPanel>
-            <Button Background="Red" Width="50" Height="50" HorizontalAlignment="Center" Click="Button_Click" />
+                <Button Background="Red" Width="50" Height="50" HorizontalAlignment="Center" Click="Button_Click" />
 
-            <Frame x:Name="shellFrame"/>
+                <Frame x:Name="shellFrame"/>
             </StackPanel>
 
         </Grid>

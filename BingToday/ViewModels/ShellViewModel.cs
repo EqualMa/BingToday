@@ -229,6 +229,26 @@ namespace BingToday.ViewModels
             }
         }
 
+        private Windows.UI.Color? newFrColor;
+        public Windows.UI.Color? NewForegroundColor
+        {
+            get { return newFrColor; }
+            set
+            {
+                Set(ref newFrColor, value);
+                ColorThemeChanged?.Invoke(this, EventArgs.Empty);
+            }
+        }
+
+        public SplitViewDisplayMode NewSplitViewDisplayMode
+        {
+            get { return DisplayMode; }
+            set
+            {
+                DisplayMode = value;
+            }
+        }
+
         public event EventHandler<EventArgs> ColorThemeChanged;
 
     }

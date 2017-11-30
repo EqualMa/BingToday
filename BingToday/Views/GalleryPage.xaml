@@ -6,7 +6,10 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:local="using:BingToday.Views"
     mc:Ignorable="d"
-    local:MenuThemeService.NewBackgroundColor="#FF4F86C6">
+    local:MenuThemeService.NewBackgroundColor="#FF4F86C6"
+    local:MenuThemeService.NewForegroundColor="#CCFFFFFF"
+    local:MenuThemeService.NewSplitViewDisplayMode="CompactInline"
+    >
 
     <Page.Resources>
         <Color x:Key="TitleBarColor">#FF4F86C6</Color>
